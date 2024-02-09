@@ -1,63 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240208 21:55:56.610" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240209 16:47:36.713" rpa="false" schemaversion="4">
 <suite id="s1" name="testePatients" source="C:\Users\natan\OneDrive\Imagens\Documentos\testeCESLasic\suites\testePatients">
 <suite id="s1-s1" name="testePatients" source="C:\Users\natan\OneDrive\Imagens\Documentos\testeCESLasic\suites\testePatients\testePatients.robot">
-<test id="s1-s1-t1" name="TC01 - testando se o site abre corretamente" line="7">
+<test id="s1-s1-t1" name="TC01 - testando botões de expandir" line="7">
 <kw name="Dado que abra o site do CES na pagina patients" library="setups_teardowns" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${geral.URL}</arg>
 <arg>${geral.Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240208 21:55:56.824" level="INFO">Opening browser 'chrome' to base url 'http://200.17.32.218:8007/patients/1'.</msg>
-<msg timestamp="20240208 21:55:57.985" level="WARN">The chromedriver version (120.0.6099.109) detected in PATH at C:\Users\natan\AppData\Local\Programs\Python\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (121.0.6167.161); currently, chromedriver 121.0.6167.85 is recommended for chrome 121.*, so it is advised to delete the driver in PATH and retry</msg>
-<status status="PASS" starttime="20240208 21:55:56.823" endtime="20240208 21:56:04.233"/>
+<msg timestamp="20240209 16:47:37.005" level="INFO">Opening browser 'chrome' to base url 'http://200.17.32.218:8007/patients/1'.</msg>
+<status status="PASS" starttime="20240209 16:47:37.005" endtime="20240209 16:47:42.994"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240208 21:56:04.233" endtime="20240208 21:56:04.426"/>
+<status status="PASS" starttime="20240209 16:47:42.994" endtime="20240209 16:47:43.205"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${patients_Page.H3_Paciente}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240208 21:56:04.426" endtime="20240208 21:56:04.705"/>
+<status status="PASS" starttime="20240209 16:47:43.205" endtime="20240209 16:47:43.310"/>
 </kw>
-<status status="PASS" starttime="20240208 21:55:56.823" endtime="20240208 21:56:04.705"/>
+<status status="PASS" starttime="20240209 16:47:37.005" endtime="20240209 16:47:43.312"/>
 </kw>
-<kw name="Dado que clique no botao de expandir os dados clinicos do paciente" library="patients_Page">
+<kw name="Dado que clique no botao de expandir Dados" library="patients_Page" sourcename="Dado que clique no botao de expandir ${wrapper}">
+<if>
+<branch type="IF" condition="&quot;${wrapper}&quot;==&quot;Dados&quot;">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${patients_Page.Div_Expand_Wrapper}</arg>
+<arg>${patients_Page.Div_Expand_Wrapper_Dados}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240208 21:56:04.706" endtime="20240208 21:56:04.952"/>
+<status status="PASS" starttime="20240209 16:47:43.313" endtime="20240209 16:47:43.417"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${patients_Page.Div_Expand_Wrapper}</arg>
+<arg>${patients_Page.Div_Expand_Wrapper_Dados}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240208 21:56:04.952" level="INFO">Clicking element '(//div[@class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"])[1]'.</msg>
-<status status="PASS" starttime="20240208 21:56:04.952" endtime="20240208 21:56:05.091"/>
+<msg timestamp="20240209 16:47:43.422" level="INFO">Clicking element '(//div[@class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"])[1]'.</msg>
+<status status="PASS" starttime="20240209 16:47:43.417" endtime="20240209 16:47:43.491"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240209 16:47:48.492" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240209 16:47:43.491" endtime="20240209 16:47:48.492"/>
+</kw>
+<status status="PASS" starttime="20240209 16:47:43.313" endtime="20240209 16:47:48.492"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${wrapper}&quot;==&quot;Consultas&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_Consultas}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_Consultas}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${patients_Page.P_Multitable_Pagination}</arg>
+<arg>${patients_Page.P_Multitable_Pagination_Consultas}</arg>
 <arg>10s</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20240208 21:56:05.309" level="INFO">Element '(//p[@class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"])[1]' is displayed.</msg>
-<status status="PASS" starttime="20240208 21:56:05.091" endtime="20240208 21:56:05.309"/>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
 </kw>
-<status status="PASS" starttime="20240208 21:56:04.705" endtime="20240208 21:56:05.309"/>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${wrapper}&quot;==&quot;ECG&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_ECG}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_ECG}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${patients_Page.P_Multitable_Pagination_ECG}</arg>
+<arg>10s</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${wrapper}&quot;==&quot;ECO&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_ECO}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_ECO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${patients_Page.P_Multitable_Pagination_ECO}</arg>
+<arg>10s</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${wrapper}&quot;==&quot;Holter&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_Holter}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${patients_Page.Div_Expand_Wrapper_Holter}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${patients_Page.P_Multitable_Pagination_Holter}</arg>
+<arg>10s</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</kw>
+<status status="NOT RUN" starttime="20240209 16:47:48.492" endtime="20240209 16:47:48.492"/>
+</branch>
+<status status="PASS" starttime="20240209 16:47:43.313" endtime="20240209 16:47:48.492"/>
+</if>
+<status status="PASS" starttime="20240209 16:47:43.312" endtime="20240209 16:47:48.492"/>
 </kw>
 <kw name="Fechar navegador" library="setups_teardowns" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240208 21:56:05.309" endtime="20240208 21:56:07.898"/>
+<status status="PASS" starttime="20240209 16:47:48.492" endtime="20240209 16:47:50.851"/>
 </kw>
-<status status="PASS" starttime="20240208 21:56:05.309" endtime="20240208 21:56:07.898"/>
+<status status="PASS" starttime="20240209 16:47:48.492" endtime="20240209 16:47:50.851"/>
 </kw>
-<status status="PASS" starttime="20240208 21:55:56.808" endtime="20240208 21:56:07.898"/>
+<status status="PASS" starttime="20240209 16:47:37.005" endtime="20240209 16:47:50.851"/>
 </test>
-<status status="PASS" starttime="20240208 21:55:56.627" endtime="20240208 21:56:07.900"/>
+<status status="PASS" starttime="20240209 16:47:36.745" endtime="20240209 16:47:50.855"/>
 </suite>
-<status status="PASS" starttime="20240208 21:55:56.615" endtime="20240208 21:56:07.900"/>
+<status status="PASS" starttime="20240209 16:47:36.729" endtime="20240209 16:47:50.859"/>
 </suite>
 <statistics>
 <total>
@@ -71,6 +155,5 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240208 21:55:57.985" level="WARN">The chromedriver version (120.0.6099.109) detected in PATH at C:\Users\natan\AppData\Local\Programs\Python\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (121.0.6167.161); currently, chromedriver 121.0.6167.85 is recommended for chrome 121.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>
