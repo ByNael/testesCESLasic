@@ -5,4 +5,4 @@ Test Teardown        Fechar navegador
 
 *** Test Cases ***
 TC01 - testando botões de expandir
-    Dado que clique no botao de expandir Dados
+    Dado que clique no botao de expandir ECG
