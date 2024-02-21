@@ -18,30 +18,8 @@ Resource        ../main.robot
 
 *** Keywords ***
 Dado que clique no botao de expandir ${wrapper}
-    IF             "${wrapper}"=="Dados"
-        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_Dados}        10s
-        Click Element                        ${patients_Page.Div_Expand_Wrapper_Dados}   
-        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_Dados}        10s          
-        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_Dados}
-    ELSE IF        "${wrapper}"=="Consultas"
-        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_Consultas}        10s
-        Click Element                        ${patients_Page.Div_Expand_Wrapper_Consultas}              
-        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_Consultas}        10s       
-        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_Consultas}        
-    ELSE IF        "${wrapper}"=="ECG"
-        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_ECG}        10s
-        Click Element                        ${patients_Page.Div_Expand_Wrapper_ECG}          
-        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_ECG}        10s           
-        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_ECG}
-    ELSE IF        "${wrapper}"=="ECO"
-        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_ECO}        10s
-        Click Element                        ${patients_Page.Div_Expand_Wrapper_ECO}           
-        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_ECO}        10s          
-        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_ECO}        
-    ELSE IF        "${wrapper}"=="Holter"
-        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_Holter}        10s
-        Click Element                        ${patients_Page.Div_Expand_Wrapper_Holter}             
-        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_Holter}        10s        
-        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_Holter}        
-    END
-        
+        Wait Until Element Is Visible        ${patients_Page.Div_Expand_Wrapper_${wrapper}}        10s
+        Sleep                                10s
+        Click Element                        ${patients_Page.Div_Expand_Wrapper_${wrapper}}   
+        Wait Until Element Is Visible        ${patients_Page.P_Multitable_Pagination_${wrapper}}        10s          
+        Element Should Be Visible            ${patients_Page.P_Multitable_Pagination_${wrapper}}
